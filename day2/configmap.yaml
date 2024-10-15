@@ -5,3 +5,4 @@ metadata:
   namespace: default
 data:
   myvalue: "sample config map"
+  costCode: {{ .Values.costCode }}
