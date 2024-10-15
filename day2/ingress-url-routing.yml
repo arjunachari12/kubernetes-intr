@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: web-app-ingress
+  annotations:
+    kubernetes.io/ingress.class: "alb"
+spec:
+  rules:
+    - host: example.com
+      http:
+        paths:
+          - path: /
+            backend:
+              service:
+                name: web-app-service
+                port:
+                  number: 80
+            pathType: Prefix
+          - path: /payment
+            pathType: Prefix
+            backend:
+              service:
+                name: web-app-service2
+                port:
+                  number: 80
