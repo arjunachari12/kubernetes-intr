@@ -1,0 +1,20 @@
+replicaCount: 1
+
+image:
+  repository: nginx
+  pullPolicy: IfNotPresent
+  tag: stable
+
+service:
+  type: ClusterIP
+  port: 80
+
+resources: {}
+# values.yaml
+ingress:
+  enabled: false # Set to true if you want to enable ingress
+  annotations: {}
+  hosts:
+    - host: chart-example.local
+      paths: []
+  tls: []
